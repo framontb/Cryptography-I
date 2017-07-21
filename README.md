@@ -1,2 +1,4 @@
 # Cryptography-I
-playing with Node Crypto module
+Playing with Node Crypto module
+
+npm install bitwise-xor
