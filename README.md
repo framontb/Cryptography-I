@@ -1,4 +1,8 @@
 # Cryptography-I
-Playing with Node Crypto module
+Playing with Node.js Crypto module
 
-npm install bitwise-xor
+Prerequisites:
+$ npm install bitwise-xor
+
+Execution:
+$ node week2-progAssig.js 
