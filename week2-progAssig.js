@@ -1,3 +1,6 @@
+// Create a simple decipher AES 128 CBC from a raw aes-128-ecb decipher
+// Create a simple decipher AES 128 CTR from a raw aes-128-ecb cipher
+
 var crypto = require('crypto');
 var xor = require('bitwise-xor');
 
@@ -52,8 +55,8 @@ plaintext = decryptAES128CBC(key, allciphertext, iv)
 
 console.log(plaintext);
 
-// ---- decrypt AES 128 CRT -------------
-function decryptAES128CRT(key,ciphertext, iv) {
+// ---- decrypt AES 128 CTR -------------
+function decryptAES128CTR(key,ciphertext, iv) {
     var cipher = crypto.createCipheriv("aes-128-ecb", key, Buffer.alloc(0));
     decipher.setAutoPadding(false);
 
@@ -93,7 +96,7 @@ key = new Buffer('36f18357be4dbd77f050515c73fcf9f2', 'hex');
 iv = new Buffer('69dda8455c7dd4254bf353b773304eec', 'hex');
 allciphertext = new Buffer('0ec7702330098ce7f7520d1cbbb20fc388d1b0adb5054dbd7370849dbf0b88d393f252e764f1f5f7ad97ef79d59ce29f5f51eeca32eabedd9afa9329', 'hex');
 
-plaintext = decryptAES128CRT(key, allciphertext, iv)
+plaintext = decryptAES128CTR(key, allciphertext, iv)
 
 console.log(plaintext);
 
@@ -102,6 +105,6 @@ key = new Buffer('36f18357be4dbd77f050515c73fcf9f2', 'hex');
 iv = new Buffer('770b80259ec33beb2561358a9f2dc617', 'hex');
 allciphertext = new Buffer('e46218c0a53cbeca695ae45faa8952aa0e311bde9d4e01726d3184c34451', 'hex');
 
-plaintext = decryptAES128CRT(key, allciphertext, iv)
+plaintext = decryptAES128CTR(key, allciphertext, iv)
 
 console.log(plaintext);
