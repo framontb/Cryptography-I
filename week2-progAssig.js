@@ -54,7 +54,7 @@ console.log(plaintext);
 
 // ---- decrypt AES 128 CRT -------------
 function decryptAES128CRT(key,ciphertext, iv) {
-    var decipher = crypto.createCipheriv("aes-128-ecb", key, Buffer.alloc(0));
+    var cipher = crypto.createCipheriv("aes-128-ecb", key, Buffer.alloc(0));
     decipher.setAutoPadding(false);
 
     var chunks = [];
@@ -65,7 +65,7 @@ function decryptAES128CRT(key,ciphertext, iv) {
         cipherBlock = allciphertext.slice(i, i+16);
         
         // Decrypt Block 
-        FkIV = decipher.update(iv, 'hex','hex');
+        FkIV = cipher.update(iv, 'hex','hex');
 
         // Buffer the decripted block
         FkIV_bufex = Buffer.from(FkIV, 'hex');
@@ -82,7 +82,7 @@ function decryptAES128CRT(key,ciphertext, iv) {
     }
 
     // Finish with the decipher
-    decipher.final('hex');
+    cipher.final('hex');
 
     // Join all chunks
     return chunks.join('');
