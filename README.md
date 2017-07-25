@@ -15,4 +15,4 @@ Playing with Node.js Crypto module
 
   ### Execution:
 
-  $ node week3-progAssig.js 
+  $ node week3-progAssign.js 
