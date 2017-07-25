@@ -1,8 +1,18 @@
 # Cryptography-I
 Playing with Node.js Crypto module
 
-Prerequisites:
-$ npm install bitwise-xor
+Week 2 - Programming Assignment
 
-Execution:
-$ node week2-progAssig.js 
+  Prerequisites:
+
+  $ npm install bitwise-xor
+
+  Execution:
+
+  $ node week2-progAssig.js 
+  
+Week 3 - Programming Assignment
+
+  Execution:
+
+  $ node week3-progAssig.js 
