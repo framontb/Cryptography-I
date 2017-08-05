@@ -21,4 +21,4 @@ Playing with Node.js Crypto module
 
   ### Execution:
 
-  $ python week4-progAssign.js 
+  $ python week4-progAssign.py
