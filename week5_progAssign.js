@@ -76,6 +76,6 @@ console.log(x.toString());
 
 var z = g.powm(x,p);
 
-console.log("It should be h:\n");
+console.log("\nIt should be h = x0 * B + x1 :");
 console.log(z.toString());
-console.log(" h \n" + h.toString());
+console.log("\nReal h:" + h.toString());
