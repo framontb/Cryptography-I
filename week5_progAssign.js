@@ -24,15 +24,33 @@ console.log(" B \n" + B.toString());
 console.log(" gB \n" + gB.toString());
 
 // Create de Maps of hashes
-var x1_map = new Map();
+var x0_map = new Map();
 
 var inv_gx1, h_inv_gx1, gBx0, hash, hashString;
 
-// 1/g E x1
-console.log("\nCreando primer mapa...");
+console.log("\nCreating Map...");
+for (var x0 = 0; x0 <= B; x0++) {
+
+    if ((x0 % 10000) == 0 ) console.log("Mapping hash: " + x0);
+
+    // Calcula el termino para x0
+    gBx0 = gB.powm(x0, p);
+
+    // Crea el hash
+    hash = crypto.createHash('sha256');
+    hash.update(gBx0.toString());
+    hashString = hash.digest('hex')
+
+    // Mapa de hashes
+    x0_map.set(hashString, x0);
+
+}
+
+// Check de Maps of hashes
+console.log("\nChecking Map...");
 for (var x1 = 0; x1 <= B; x1++) {
     
-    if ((x1 % 10000) == 0 ) console.log("Creando mapa para: " + x1);
+    if ((x1 % 10000) == 0 ) console.log("Checking hash: " + x1);
 
     // Calcula el termino para x1
     inv_gx1 = g.powm(x1,p).invertm(p);
@@ -44,26 +62,9 @@ for (var x1 = 0; x1 <= B; x1++) {
     hashString = hash.digest('hex')
 
     // Mapa de hashes
-    x1_map.set(hashString, x1);
-}
-
-console.log("\nBuscando coincidencia...");
-for (var x0 = 0; x0 <= B; x0++) {
-
-    if ((x0 % 10000) == 0 ) console.log("Comprobando hash para: " + x0);
-
-    // Calcula el termino para x0
-    gBx0 = gB.powm(x0, p);
-
-    // Crea el hash
-    hash = crypto.createHash('sha256');
-    hash.update(gBx0.toString());
-    hashString = hash.digest('hex')
-
-    // Mapa de hashes
-    if (x1_map.has(hashString)) {
+    if (x0_map.has(hashString)) {
         console.log("hashString: ", hashString);
-        x1 = x1_map.get(hashString);
+        x0 = x0_map.get(hashString);
         console.log("x1: ", x1);
         console.log("x0: ", x0);
         break;
@@ -71,11 +72,12 @@ for (var x0 = 0; x0 <= B; x0++) {
 }
 
 var x = bignum.mul(x0, B).add(x1).mod(p);
-console.log("Solucion:\n");
+console.log("\nSolucion:");
 console.log(x.toString());
 
 var z = g.powm(x,p);
 
 console.log("\nIt should be h = x0 * B + x1 :");
 console.log(z.toString());
-console.log("\nReal h:" + h.toString());
+console.log("\nReal h:");
+console.log(h.toString());
