@@ -22,3 +22,13 @@ Playing with Node.js Crypto module
   ### Execution:
 
   $ python week4-progAssign.py
+  
+## Week 5 - Programming Assignment
+
+  ### Prerequisites:
+
+  $ npm install bignum
+
+  ### Execution:
+
+  $ node week5_progAssign.js 
