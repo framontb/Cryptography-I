@@ -24,7 +24,8 @@ Playing with Node.js Crypto module
   $ python week4-progAssign.py
   
 ## Week 5 - Programming Assignment
-Program to compute 'x' discrete log modulo a prime p. Let g be some element in (Zp)* (cyclic group of integers modulo prime p)  and suppose you are given h in (Zp)* such that h=powm(g,x,p) (h = g to the power X modulo p; simplified notation: gEp(x)).
+Program to compute 'x', the discrete log base 'g' modulo a prime 'p' of certain number, namely 'h': x = Dlog_g(h) 
+Let g be some element in (Zp)* (cyclic group of integers modulo prime p)  and suppose you are given h in (Zp)* such that h=powm(g,x,p) (h = g to the power X modulo p; simplified notation: gEp(x)).
 Lets write the unknown x base B as x = x0 * B + x1
 where x0,x1 are in the range [0,B−1]. Then:
 h = gEp(x) = powm(g,x,p) = powm(g, x0*B+x1, p) = (gEp(B))E(x0)⋅gEp(x1)   in Zp. [Let Ep be the powm operator, exponentiation modulo p]
